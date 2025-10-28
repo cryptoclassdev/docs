@@ -1,0 +1,284 @@
+---
+title: "Delegate Tokens"
+description: "Step-by-step guide to delegating SOL tokens to Validator.com"
+---
+
+## Delegation Methods
+
+Choose the method that best suits your needs and technical expertise.
+
+### Method 1: Phantom Wallet (Recommended)
+
+Phantom is the most popular Solana wallet with built-in staking features.
+
+#### Step-by-Step Instructions
+
+1. **Install Phantom Wallet**
+
+   - Visit [phantom.app](https://phantom.app)
+   - Download for your browser or mobile device
+   - Create a new wallet or import existing
+
+2. **Fund Your Wallet**
+
+   - Purchase SOL from an exchange
+   - Transfer SOL to your Phantom wallet address
+   - Ensure you have enough SOL for staking (minimum 0.1 SOL)
+
+3. **Access Staking Section**
+
+   - Open Phantom wallet
+   - Click on "Stake" in the main navigation
+   - Select "Stake with Validator"
+
+4. **Find Validator.com**
+
+   - Search for "Validator.com" in the validator list
+   - Or use our validator identity: `ValidatorCom1234567890abcdef`
+   - Verify the commission rate shows 5%
+
+5. **Delegate Your Tokens**
+   - Enter the amount of SOL you want to stake
+   - Review the transaction details
+   - Confirm the delegation transaction
+   - Wait for confirmation (usually 1-2 minutes)
+
+<Info>
+  **Transaction Fee**: ~0.000005 SOL
+  <br />
+  **Confirmation Time**: 1-2 minutes
+  <br />
+  **Minimum Stake**: 0.1 SOL
+</Info>
+
+### Method 2: Solflare Wallet
+
+Solflare offers advanced staking features and detailed analytics.
+
+#### Step-by-Step Instructions
+
+1. **Install Solflare Wallet**
+
+   - Visit [solflare.com](https://solflare.com)
+   - Install browser extension or mobile app
+   - Set up your wallet and secure your seed phrase
+
+2. **Navigate to Staking**
+
+   - Open Solflare wallet
+   - Click on "Staking" in the main menu
+   - Select "Delegate Stake"
+
+3. **Enter Validator Information**
+
+   - Paste our validator identity: `ValidatorCom1234567890abcdef`
+   - Verify the validator details are correct
+   - Check commission rate (5%)
+
+4. **Configure Stake Amount**
+
+   - Enter the amount of SOL to stake
+   - Review estimated rewards
+   - Set up automatic restaking (optional)
+
+5. **Execute Delegation**
+   - Review all transaction details
+   - Confirm the delegation
+   - Monitor transaction status
+
+### Method 3: Command Line Interface (CLI)
+
+For advanced users who prefer command-line tools.
+
+#### Prerequisites
+
+```bash
+# Install Solana CLI tools
+curl -sSf https://release.solana.com/v1.17.0/install | sh
+
+# Add to PATH
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+
+# Verify installation
+solana --version
+```
+
+#### Step-by-Step Instructions
+
+1. **Configure Solana CLI**
+
+   ```bash
+   # Set cluster (mainnet-beta for production)
+   solana config set --url https://api.mainnet-beta.solana.com
+
+   # Set keypair
+   solana config set --keypair ~/.config/solana/id.json
+
+   # Check balance
+   solana balance
+   ```
+
+2. **Create Stake Account**
+
+   ```bash
+   # Create stake account keypair
+   solana-keygen new --outfile ~/.config/solana/stake-account.json
+
+   # Create stake account
+   solana create-stake-account ~/.config/solana/stake-account.json 1.0
+   ```
+
+3. **Delegate to Validator.com**
+
+   ```bash
+   # Delegate stake to our validator
+   solana delegate-stake ~/.config/solana/stake-account.json ValidatorCom1234567890abcdef
+
+   # Verify delegation
+   solana stake-account ~/.config/solana/stake-account.json
+   ```
+
+4. **Monitor Stake Account**
+
+   ```bash
+   # Check stake account status
+   solana stake-account ~/.config/solana/stake-account.json
+
+   # View validator information
+   solana validators --output json | grep ValidatorCom1234567890abcdef
+   ```
+
+## Verification Steps
+
+### Confirm Successful Delegation
+
+After delegating, verify your stake is active:
+
+<AccordionGroup>
+  <Accordion icon="check-circle" title="Wallet Verification">
+    In your wallet's staking section:
+    - Your stake should show as "Active"
+    - Validator should display as "Validator.com"
+    - Commission should show 5%
+    - Rewards should start accumulating after 1-2 epochs
+  </Accordion>
+  <Accordion icon="globe" title="Block Explorer">
+    Use Solana block explorers:
+    1. Visit [explorer.solana.com](https://explorer.solana.com)
+    2. Search for your wallet address
+    3. Navigate to "Stake Accounts" tab
+    4. Verify delegation to Validator.com
+  </Accordion>
+  <Accordion icon="terminal" title="CLI Verification">
+    ```bash
+    # Check stake account details
+    solana stake-account <stake-account-keypair>
+    
+    # View validator performance
+    solana validators --output json | grep ValidatorCom1234567890abcdef
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Managing Your Stake
+
+### Adding More Stake
+
+To increase your stake with Validator.com:
+
+1. **Create Additional Stake Account**
+
+   ```bash
+   # Create new stake account
+   solana create-stake-account ~/.config/solana/stake-account-2.json 1.0
+
+   # Delegate to same validator
+   solana delegate-stake ~/.config/solana/stake-account-2.json ValidatorCom1234567890abcdef
+   ```
+
+2. **Merge Stake Accounts** (Optional)
+   ```bash
+   # Merge stake accounts
+   solana merge-stake ~/.config/solana/stake-account.json ~/.config/solana/stake-account-2.json
+   ```
+
+### Withdrawing Stake
+
+To withdraw your stake:
+
+<Warning>
+  **Important**: Withdrawing stake takes 2-3 days (cooling-off period) before
+  tokens become available.
+</Warning>
+
+```bash
+# Deactivate stake account
+solana deactivate-stake ~/.config/solana/stake-account.json
+
+# Wait for cooling-off period (2-3 days)
+
+# Withdraw stake
+solana withdraw-stake ~/.config/solana/stake-account.json <destination-wallet>
+```
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion icon="exclamation-triangle" title="Transaction Failed">
+    **Possible Causes:** - Insufficient SOL for transaction fees - Network
+    congestion - Invalid validator identity **Solutions:** - Ensure you have at
+    least 0.01 SOL for fees - Retry transaction during less busy periods -
+    Double-check validator identity
+  </Accordion>
+  <Accordion icon="clock" title="Stake Not Active">
+    **Possible Causes:** - Delegation still processing - Validator temporarily
+    offline - Network issues **Solutions:** - Wait 1-2 epochs for activation -
+    Check validator status - Monitor network status
+  </Accordion>
+  <Accordion icon="question-circle" title="No Rewards">
+    **Possible Causes:** - Stake recently delegated - Validator performance
+    issues - Network-wide issues **Solutions:** - Wait 2-3 epochs for first
+    rewards - Check validator performance metrics - Monitor network status
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+### Security Tips
+
+<Warning>
+  **Security Best Practices:** - Never share your private keys or seed phrases -
+  Always verify validator identity before staking - Use official wallet
+  applications only - Enable two-factor authentication where available - Keep
+  your wallet software updated - Use hardware wallets for large amounts
+</Warning>
+
+### Optimization Tips
+
+- **Stake Amount**: Consider staking 1+ SOL for optimal rewards
+- **Timing**: Stake during low network congestion for lower fees
+- **Monitoring**: Regularly check validator performance
+- **Diversification**: Consider multiple validators for risk management
+
+## Support
+
+Need help with delegation?
+
+<CardGroup cols={2}>
+  <Card
+    title="Discord Support"
+    icon="discord"
+    href="https://discord.gg/validator"
+  >
+    Get help from our community and support team.
+  </Card>
+  <Card
+    title="Email Support"
+    icon="envelope"
+    href="mailto:support@validator.com"
+  >
+    Contact us directly for technical assistance.
+  </Card>
+</CardGroup>

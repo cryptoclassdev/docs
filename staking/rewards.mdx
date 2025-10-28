@@ -1,0 +1,316 @@
+---
+title: "Staking Rewards"
+description: "Understanding staking rewards calculation and distribution"
+---
+
+## How Rewards Work
+
+Staking rewards on Solana are generated through network inflation and distributed to validators and their delegators based on performance and stake weight.
+
+### Reward Sources
+
+<AccordionGroup>
+  <Accordion icon="coins" title="Network Inflation">
+    Solana's current inflation rate is approximately 6.5% annually. This creates
+    new SOL tokens that are distributed as staking rewards to maintain network
+    security.
+  </Accordion>
+  <Accordion icon="receipt" title="Transaction Fees">
+    A portion of transaction fees collected by the network is also distributed
+    as rewards to validators and their delegators.
+  </Accordion>
+  <Accordion icon="chart-line" title="Validator Performance">
+    Rewards are distributed based on validator uptime, block production, and
+    network participation. Higher performance means more rewards.
+  </Accordion>
+</AccordionGroup>
+
+## Reward Calculation
+
+### Basic Formula
+
+Your staking rewards are calculated using this formula:
+
+```
+Your Rewards = (Your Stake / Total Validator Stake) × Validator Rewards × (1 - Commission)
+```
+
+### Detailed Breakdown
+
+<Columns cols={2}>
+  <Card title="Your Stake" icon="coins">
+    The amount of SOL you've delegated to Validator.com. Larger stakes receive
+    proportionally more rewards.
+  </Card>
+  <Card title="Validator Performance" icon="gauge">
+    Our validator's uptime, block production rate, and network participation
+    directly impact total rewards earned.
+  </Card>
+  <Card title="Commission Rate" icon="percent">
+    We charge 5% commission on rewards, which is competitive and covers
+    operational costs.
+  </Card>
+  <Card title="Network Conditions" icon="globe">
+    Overall network performance and inflation rate affect the total reward pool
+    available.
+  </Card>
+</Columns>
+
+## Expected Returns
+
+### Current Performance Metrics
+
+Based on our validator's performance and current network conditions:
+
+<CardGroup cols={2}>
+  <Card title="Annual APY" icon="chart-line">
+    **7-8%**
+    <br />
+    <small>Expected annual return</small>
+  </Card>
+  <Card title="Daily Rewards" icon="calendar">
+    **~0.02%**
+    <br />
+    <small>Of staked amount</small>
+  </Card>
+  <Card title="Epoch Rewards" icon="clock">
+    **~0.04%**
+    <br />
+    <small>Every 2 days</small>
+  </Card>
+  <Card title="Commission" icon="percent">
+    **5%**
+    <br />
+    <small>Deducted from rewards</small>
+  </Card>
+</CardGroup>
+
+### Historical Performance
+
+<AccordionGroup>
+  <Accordion icon="chart-line" title="30-Day Average">
+    **APY**: 7.2%
+    <br />
+    **Total Rewards**: 1,250 SOL distributed
+    <br />
+    **Uptime**: 99.97%
+    <br />
+    **Average Stake**: 2.1M SOL
+  </Accordion>
+  <Accordion icon="chart-line" title="90-Day Average">
+    **APY**: 7.5%
+    <br />
+    **Total Rewards**: 3,750 SOL distributed
+    <br />
+    **Uptime**: 99.95%
+    <br />
+    **Average Stake**: 2.3M SOL
+  </Accordion>
+  <Accordion icon="chart-line" title="1-Year Average">
+    **APY**: 7.8%
+    <br />
+    **Total Rewards**: 15,000 SOL distributed
+    <br />
+    **Uptime**: 99.92%
+    <br />
+    **Average Stake**: 2.5M SOL
+  </Accordion>
+</AccordionGroup>
+
+## Reward Distribution
+
+### Epoch System
+
+Solana operates on epochs (approximately 2 days each):
+
+1. **Epoch Start**: New epoch begins
+2. **Block Production**: Validators produce blocks and vote
+3. **Performance Calculation**: Network calculates validator performance
+4. **Reward Distribution**: Rewards distributed at epoch end
+5. **Next Epoch**: Process repeats
+
+### Distribution Timeline
+
+<Info>
+  **Reward Timeline:** - **Epoch Duration**: ~2 days - **Reward Calculation**:
+  End of each epoch - **Distribution**: Automatic to stake accounts - **First
+  Rewards**: 1-2 epochs after delegation - **Compound Effect**: Rewards can be
+  automatically restaked
+</Info>
+
+## Factors Affecting Rewards
+
+### Network-Level Factors
+
+<AccordionGroup>
+  <Accordion icon="globe" title="Network Inflation">
+    Solana's inflation rate affects the total reward pool. Currently at ~6.5%
+    annually, decreasing over time.
+  </Accordion>
+  <Accordion icon="users" title="Total Network Stake">
+    As more SOL is staked across the network, individual rewards may decrease
+    due to dilution.
+  </Accordion>
+  <Accordion icon="chart-bar" title="Network Performance">
+    Overall network health and performance can impact reward distribution
+    mechanisms.
+  </Accordion>
+</AccordionGroup>
+
+### Validator-Level Factors
+
+<AccordionGroup>
+  <Accordion icon="gauge" title="Uptime Performance">
+    Our validator's uptime directly impacts rewards. Higher uptime = more
+    rewards.
+  </Accordion>
+  <Accordion icon="cube" title="Block Production">
+    Consistent block production and voting participation maximizes reward
+    potential.
+  </Accordion>
+  <Accordion icon="scale" title="Total Validator Stake">
+    Our validator's total stake affects our share of network rewards.
+  </Accordion>
+</AccordionGroup>
+
+### Individual Factors
+
+<AccordionGroup>
+  <Accordion icon="coins" title="Your Stake Amount">
+    Larger stakes receive proportionally more rewards, but smaller stakes still
+    earn competitive returns.
+  </Accordion>
+  <Accordion icon="clock" title="Staking Duration">
+    Longer staking periods allow for compound growth and consistent reward
+    accumulation.
+  </Accordion>
+  <Accordion icon="sync" title="Restaking Strategy">
+    Automatically restaking rewards can increase overall returns through
+    compound growth.
+  </Accordion>
+</AccordionGroup>
+
+## Monitoring Your Rewards
+
+### Wallet Dashboards
+
+Most Solana wallets provide built-in reward tracking:
+
+- **Current Rewards**: Pending rewards from current epoch
+- **Historical Data**: Past reward distributions
+- **Performance Metrics**: Validator uptime and performance
+- **Projected Returns**: Estimated future rewards
+
+### Validator.com Dashboard
+
+Our dedicated dashboard provides detailed analytics:
+
+1. **Visit**: [dashboard.validator.com](https://dashboard.validator.com)
+2. **Enter**: Your wallet address
+3. **View**: Detailed staking information
+4. **Track**: Performance metrics and rewards
+
+### Command Line Monitoring
+
+```bash
+# Check stake account balance
+solana balance <stake-account-keypair>
+
+# View detailed stake account info
+solana stake-account <stake-account-keypair>
+
+# Check validator performance
+solana validators --output json | grep ValidatorCom1234567890abcdef
+```
+
+## Reward Optimization
+
+### Maximizing Returns
+
+<AccordionGroup>
+  <Accordion icon="chart-line" title="Compound Staking">
+    Automatically restaking rewards can increase overall returns through
+    compound growth over time.
+  </Accordion>
+  <Accordion icon="clock" title="Long-term Staking">
+    Longer staking periods allow for consistent reward accumulation and compound
+    growth.
+  </Accordion>
+  <Accordion icon="balance-scale" title="Optimal Stake Amount">
+    Staking 1+ SOL typically provides optimal reward-to-fee ratios and better
+    performance tracking.
+  </Accordion>
+</AccordionGroup>
+
+### Risk Management
+
+<Warning>
+  **Important Considerations:** - Rewards are not guaranteed and depend on
+  network and validator performance - Commission rates may change with advance
+  notice - Network conditions can affect reward distribution - Past performance
+  doesn't guarantee future results
+</Warning>
+
+## Tax Considerations
+
+### Reward Taxation
+
+<Info>
+  **Tax Information:** - Staking rewards are generally considered taxable income
+  - Rewards are typically taxed when received - Keep detailed records of all
+  reward transactions - Consult a tax professional for specific guidance - Use
+  tools like Koinly or CoinTracker for tax reporting
+</Info>
+
+### Record Keeping
+
+Maintain records of:
+
+- Initial stake amounts
+- Reward distributions
+- Commission fees paid
+- Unstaking transactions
+- Transaction timestamps and amounts
+
+## Troubleshooting Rewards
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion icon="question-circle" title="No Rewards Received">
+    **Possible Causes:** - Recently delegated (wait 1-2 epochs) - Validator
+    temporary downtime - Network-wide issues **Solutions:** - Wait 2-3 epochs
+    for first rewards - Check validator status - Monitor network status
+  </Accordion>
+  <Accordion icon="exclamation-triangle" title="Lower Than Expected Rewards">
+    **Possible Causes:** - Network performance issues - Increased total network
+    stake - Validator performance dip **Solutions:** - Check network status -
+    Review validator metrics - Compare with historical averages
+  </Accordion>
+  <Accordion icon="clock" title="Delayed Reward Distribution">
+    **Possible Causes:** - Network congestion - Epoch boundary delays -
+    Technical issues **Solutions:** - Wait for next epoch - Check network status
+    - Contact support if persistent
+  </Accordion>
+</AccordionGroup>
+
+## Support
+
+Need help understanding your rewards?
+
+<CardGroup cols={2}>
+  <Card
+    title="Discord Community"
+    icon="discord"
+    href="https://discord.gg/validator"
+  >
+    Join our community for reward discussions and support.
+  </Card>
+  <Card
+    title="Email Support"
+    icon="envelope"
+    href="mailto:support@validator.com"
+  >
+    Contact us for detailed reward analysis and assistance.
+  </Card>
+</CardGroup>
