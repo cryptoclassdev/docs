@@ -1,0 +1,208 @@
+---
+title: "Common Issues"
+description: "Troubleshooting guide for common staking and validator issues"
+---
+
+## Staking Issues
+
+### Transaction Problems
+
+<AccordionGroup>
+  <Accordion icon="exclamation-triangle" title="Transaction Failed">
+    **Symptoms:** - Transaction shows as failed in wallet - Error message
+    displayed - SOL not staked **Common Causes:** - Insufficient SOL for
+    transaction fees - Network congestion - Invalid validator identity - Wallet
+    connection issues **Solutions:** 1. Ensure you have at least 0.01 SOL for
+    fees 2. Retry during less busy periods 3. Double-check validator identity 4.
+    Refresh wallet connection 5. Try different wallet if persistent
+  </Accordion>
+  <Accordion icon="clock" title="Transaction Pending">
+    **Symptoms:** - Transaction stuck in pending state - No confirmation
+    received - Balance not updated **Common Causes:** - Network congestion - Low
+    transaction fee - Wallet synchronization issues **Solutions:** 1. Wait 5-10
+    minutes for confirmation 2. Check network status 3. Increase transaction fee
+    if possible 4. Refresh wallet 5. Check transaction on block explorer
+  </Accordion>
+  <Accordion icon="question-circle" title="Insufficient Balance">
+    **Symptoms:** - "Insufficient balance" error - Cannot complete staking
+    transaction **Common Causes:** - Not enough SOL for stake amount - Not
+    enough SOL for transaction fees - Account locked or frozen **Solutions:** 1.
+    Check available SOL balance 2. Ensure minimum 0.1 SOL + fees 3. Reduce stake
+    amount if needed 4. Add more SOL to wallet 5. Check account status
+  </Accordion>
+</AccordionGroup>
+
+### Stake Account Issues
+
+<AccordionGroup>
+  <Accordion icon="coins" title="Stake Not Active">
+    **Symptoms:** - Stake shows as inactive - No rewards being earned -
+    Validator not showing delegation **Common Causes:** - Recent delegation
+    (waiting for activation) - Validator temporarily offline - Network
+    synchronization issues **Solutions:** 1. Wait 1-2 epochs for activation 2.
+    Check validator status 3. Verify delegation on block explorer 4. Contact
+    support if persistent
+  </Accordion>
+  <Accordion icon="chart-line" title="No Rewards Received">
+    **Symptoms:** - Stake active but no rewards - Rewards stopped appearing -
+    Lower than expected rewards **Common Causes:** - Recently staked (first
+    rewards take 1-2 epochs) - Validator performance issues - Network-wide
+    problems - Commission rate changes **Solutions:** 1. Wait 2-3 epochs for
+    first rewards 2. Check validator performance metrics 3. Monitor network
+    status 4. Compare with historical averages 5. Contact support for analysis
+  </Accordion>
+  <Accordion icon="sync" title="Cannot Unstake">
+    **Symptoms:** - Unstaking transaction fails - Stake remains active - Error
+    messages during unstaking **Common Causes:** - Stake account not properly
+    deactivated - Cooling-off period not completed - Network issues -
+    Insufficient fees **Solutions:** 1. Ensure stake is deactivated first 2.
+    Wait for cooling-off period (2-3 days) 3. Check network status 4. Ensure
+    sufficient SOL for fees 5. Try again during stable network conditions
+  </Accordion>
+</AccordionGroup>
+
+## Validator Performance Issues
+
+### Uptime Problems
+
+<AccordionGroup>
+  <Accordion icon="server" title="Validator Offline">
+    **Symptoms:** - Dashboard shows offline status - No block production - Stake
+    shows as inactive **Common Causes:** - Hardware failure - Network
+    connectivity issues - Software bugs - Maintenance windows **Solutions:** 1.
+    Check validator status page 2. Monitor Discord for updates 3. Wait for
+    automatic recovery 4. Contact support if prolonged
+  </Accordion>
+  <Accordion icon="chart-line" title="Performance Degradation">
+    **Symptoms:** - Lower uptime percentage - Missed votes - Reduced rewards
+    **Common Causes:** - Network congestion - Hardware issues - Software updates
+    - External dependencies **Solutions:** 1. Monitor performance trends 2.
+    Check for maintenance announcements 3. Compare with network averages 4.
+    Contact support for investigation
+  </Accordion>
+</AccordionGroup>
+
+## Wallet Issues
+
+### Connection Problems
+
+<AccordionGroup>
+  <Accordion icon="wifi" title="Wallet Connection Failed">
+    **Symptoms:** - Cannot connect to Solana network - Balance not loading -
+    Transaction errors **Common Causes:** - Network connectivity issues - RPC
+    endpoint problems - Wallet configuration issues **Solutions:** 1. Check
+    internet connection 2. Try different RPC endpoint 3. Restart wallet
+    application 4. Clear wallet cache 5. Update wallet software
+  </Accordion>
+  <Accordion icon="sync" title="Balance Not Updating">
+    **Symptoms:** - Balance shows old amount - Recent transactions not visible -
+    Staking status outdated **Common Causes:** - Wallet synchronization issues -
+    RPC endpoint delays - Cache problems **Solutions:** 1. Refresh wallet 2.
+    Clear cache and restart 3. Check block explorer for transactions 4. Try
+    different RPC endpoint 5. Update wallet software
+  </Accordion>
+</AccordionGroup>
+
+## Network Issues
+
+### Solana Network Problems
+
+<AccordionGroup>
+  <Accordion icon="globe" title="Network Congestion">
+    **Symptoms:** - Slow transaction processing - High transaction fees - Failed
+    transactions **Common Causes:** - High network usage - Spam transactions -
+    Network upgrades **Solutions:** 1. Wait for congestion to clear 2. Increase
+    transaction fees 3. Try during off-peak hours 4. Monitor network status
+  </Accordion>
+  <Accordion icon="exclamation-triangle" title="Network Outage">
+    **Symptoms:** - Cannot connect to network - All transactions failing -
+    Wallets not responding **Common Causes:** - Network-wide issues - Protocol
+    upgrades - Critical bugs **Solutions:** 1. Check Solana status page 2.
+    Monitor official announcements 3. Wait for network recovery 4. Follow
+    updates on Discord/Twitter
+  </Accordion>
+</AccordionGroup>
+
+## Getting Help
+
+### Self-Service Resources
+
+<CardGroup cols={2}>
+  <Card
+    title="Status Page"
+    icon="chart-bar"
+    href="https://status.validator.com"
+  >
+    Check validator and network status.
+  </Card>
+  <Card title="Block Explorer" icon="search" href="https://explorer.solana.com">
+    Verify transactions and stake accounts.
+  </Card>
+</CardGroup>
+
+### Community Support
+
+<AccordionGroup>
+  <Accordion icon="discord" title="Discord Community">
+    **#support Channel**: Get help from community and team
+    <br />
+    **#announcements**: Important updates and notifications
+    <br />
+    **#staking-help**: Staking-specific assistance
+    <br />
+    Join: [discord.gg/validator](https://discord.gg/validator)
+  </Accordion>
+  <Accordion icon="envelope" title="Email Support">
+    **Technical Issues**: support@validator.com
+    <br />
+    **General Questions**: info@validator.com
+    <br />
+    **Business Inquiries**: business@validator.com Response time: 24-48 hours
+  </Accordion>
+</AccordionGroup>
+
+### Escalation Process
+
+<Info>
+  **When to Escalate:** - Critical issues affecting multiple users - Security
+  concerns - Prolonged validator downtime - Significant reward discrepancies -
+  Urgent technical problems
+</Info>
+
+## Prevention Tips
+
+### Best Practices
+
+<Warning>
+  **Prevention Tips:** - Always verify validator identity before staking - Keep
+  wallet software updated - Monitor validator performance regularly - Use
+  official wallet applications only - Enable notifications for important updates
+  - Maintain backup of wallet information - Test with small amounts first
+</Warning>
+
+### Regular Maintenance
+
+- **Weekly**: Check validator performance
+- **Monthly**: Review staking rewards
+- **Quarterly**: Assess validator performance trends
+- **As Needed**: Update wallet software
+- **Always**: Monitor network status
+
+## Emergency Contacts
+
+<CardGroup cols={2}>
+  <Card title="Emergency Support" icon="phone">
+    **Email**: emergency@validator.com
+    <br />
+    **Discord**: #emergency channel
+    <br />
+    **Response**: Within 2 hours
+  </Card>
+  <Card title="Security Issues" icon="shield-check">
+    **Email**: security@validator.com
+    <br />
+    **Discord**: DM @security-team
+    <br />
+    **Response**: Immediate
+  </Card>
+</CardGroup>

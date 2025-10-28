@@ -1,0 +1,251 @@
+---
+title: "Validator Status"
+description: "Get current validator status and performance metrics"
+---
+
+## Get Validator Status
+
+Retrieve the current status and performance metrics for Validator.com.
+
+### Endpoint
+
+```http
+GET /v1/status
+```
+
+### Parameters
+
+No parameters required.
+
+### Response
+
+<ParamField query="status" type="string">
+  Current validator status: `active`, `inactive`, or `maintenance`
+</ParamField>
+
+<ParamField query="uptime" type="number">
+  Validator uptime percentage over the last 30 days
+</ParamField>
+
+<ParamField query="commission" type="number">
+  Commission rate percentage (5%)
+</ParamField>
+
+<ParamField query="active_stake" type="number">
+  Total SOL currently staked with the validator
+</ParamField>
+
+<ParamField query="vote_account" type="string">
+  Validator vote account address
+</ParamField>
+
+<ParamField query="identity" type="string">
+  Validator identity key
+</ParamField>
+
+### Example Request
+
+```bash
+curl https://api.validator.com/v1/status
+```
+
+### Example Response
+
+```json
+{
+  "status": "success",
+  "data": {
+    "status": "active",
+    "uptime": 99.97,
+    "commission": 5.0,
+    "active_stake": 2500000.5,
+    "vote_account": "VoteAccount1234567890abcdef",
+    "identity": "ValidatorCom1234567890abcdef",
+    "last_updated": "2024-01-15T10:30:00Z"
+  },
+  "timestamp": "2024-01-15T10:30:00Z"
+}
+```
+
+## Get Validator Performance
+
+Get detailed performance metrics for a specific time period.
+
+### Endpoint
+
+```http
+GET /v1/performance
+```
+
+### Parameters
+
+<ParamField query="timeframe" type="string" default="7d">
+  Time period for metrics: `1d`, `7d`, `30d`, `90d`, `1y`
+</ParamField>
+
+<ParamField query="granularity" type="string" default="hourly">
+  Data granularity: `hourly`, `daily`, `weekly`
+</ParamField>
+
+### Response
+
+<ParamField query="uptime" type="array">
+  Array of uptime percentages over the time period
+</ParamField>
+
+<ParamField query="block_production" type="array">
+  Array of block production rates
+</ParamField>
+
+<ParamField query="vote_participation" type="array">
+  Array of vote participation percentages
+</ParamField>
+
+<ParamField query="rewards" type="array">
+  Array of reward amounts per period
+</ParamField>
+
+### Example Request
+
+```bash
+curl "https://api.validator.com/v1/performance?timeframe=30d&granularity=daily"
+```
+
+### Example Response
+
+```json
+{
+  "status": "success",
+  "data": {
+    "timeframe": "30d",
+    "granularity": "daily",
+    "uptime": [99.98, 99.97, 99.99, 99.96, 99.98],
+    "block_production": [99.8, 99.9, 99.7, 99.8, 99.9],
+    "vote_participation": [100, 100, 100, 100, 100],
+    "rewards": [125.5, 127.2, 124.8, 126.1, 125.9],
+    "periods": [
+      "2024-01-10T00:00:00Z",
+      "2024-01-11T00:00:00Z",
+      "2024-01-12T00:00:00Z",
+      "2024-01-13T00:00:00Z",
+      "2024-01-14T00:00:00Z"
+    ]
+  },
+  "timestamp": "2024-01-15T10:30:00Z"
+}
+```
+
+## Get Validator Alerts
+
+Retrieve recent alerts and notifications for the validator.
+
+### Endpoint
+
+```http
+GET /v1/alerts
+```
+
+### Parameters
+
+<ParamField query="limit" type="integer" default="10">
+  Maximum number of alerts to return (1-100)
+</ParamField>
+
+<ParamField query="severity" type="string">
+  Filter by alert severity: `critical`, `warning`, `info`
+</ParamField>
+
+<ParamField query="since" type="string">
+  Return alerts since this timestamp (ISO 8601 format)
+</ParamField>
+
+### Response
+
+<ParamField query="alerts" type="array">
+  Array of alert objects
+</ParamField>
+
+<ParamField query="id" type="string">
+  Unique alert identifier
+</ParamField>
+
+<ParamField query="severity" type="string">
+  Alert severity level
+</ParamField>
+
+<ParamField query="message" type="string">
+  Alert message description
+</ParamField>
+
+<ParamField query="timestamp" type="string">
+  When the alert was triggered
+</ParamField>
+
+<ParamField query="resolved" type="boolean">
+  Whether the alert has been resolved
+</ParamField>
+
+### Example Request
+
+```bash
+curl "https://api.validator.com/v1/alerts?limit=5&severity=critical"
+```
+
+### Example Response
+
+```json
+{
+  "status": "success",
+  "data": {
+    "alerts": [
+      {
+        "id": "alert_123456",
+        "severity": "critical",
+        "message": "Validator offline - investigating",
+        "timestamp": "2024-01-15T09:15:00Z",
+        "resolved": true,
+        "resolved_at": "2024-01-15T09:25:00Z"
+      },
+      {
+        "id": "alert_123457",
+        "severity": "warning",
+        "message": "Uptime below 99% threshold",
+        "timestamp": "2024-01-14T14:30:00Z",
+        "resolved": true,
+        "resolved_at": "2024-01-14T15:00:00Z"
+      }
+    ]
+  },
+  "timestamp": "2024-01-15T10:30:00Z"
+}
+```
+
+## Error Responses
+
+### Invalid Parameters
+
+```json
+{
+  "status": "error",
+  "error": {
+    "code": "INVALID_PARAMETER",
+    "message": "Invalid timeframe parameter",
+    "details": "timeframe must be one of: 1d, 7d, 30d, 90d, 1y"
+  },
+  "timestamp": "2024-01-15T10:30:00Z"
+}
+```
+
+### Rate Limit Exceeded
+
+```json
+{
+  "status": "error",
+  "error": {
+    "code": "RATE_LIMIT_EXCEEDED",
+    "message": "Rate limit exceeded",
+    "details": "Too many requests. Please try again later."
+  },
+  "timestamp": "2024-01-15T10:30:00Z"
+}
+```

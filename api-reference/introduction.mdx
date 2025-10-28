@@ -1,33 +1,249 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "API Introduction"
+description: "Validator.com API documentation for programmatic access"
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## API Overview
 
-## Welcome
+The Validator.com API provides programmatic access to validator performance metrics, staking information, and monitoring data. Use our API to integrate validator data into your applications, build custom dashboards, or automate monitoring tasks.
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+### Base URL
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+```
+https://api.validator.com/v1
+```
 
-## Authentication
+### Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+Most endpoints are public and don't require authentication. For rate-limited endpoints or advanced features, API keys are available upon request.
+
+<Info>
+  **API Key**: Contact support@validator.com to request an API key for higher
+  rate limits and advanced features.
+</Info>
+
+## Quick Start
+
+### Basic Request
+
+```bash
+# Get validator status
+curl https://api.validator.com/v1/status
+
+# Get staking information for a wallet
+curl https://api.validator.com/v1/stake/SOL_WALLET_ADDRESS
+
+# Get performance metrics
+curl https://api.validator.com/v1/metrics
+```
+
+### Response Format
+
+All API responses are in JSON format:
 
 ```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+{
+  "status": "success",
+  "data": {
+    // Response data here
+  },
+  "timestamp": "2024-01-15T10:30:00Z"
+}
 ```
+
+## Rate Limits
+
+### Free Tier
+
+- **Rate Limit**: 100 requests per minute
+- **Burst Limit**: 200 requests per minute
+- **Authentication**: Not required
+- **Endpoints**: All public endpoints
+
+### Pro Tier
+
+- **Rate Limit**: 1000 requests per minute
+- **Burst Limit**: 2000 requests per minute
+- **Authentication**: API key required
+- **Endpoints**: All endpoints including advanced features
+
+## Error Handling
+
+### HTTP Status Codes
+
+- **200**: Success
+- **400**: Bad Request - Invalid parameters
+- **401**: Unauthorized - Invalid API key
+- **403**: Forbidden - Rate limit exceeded
+- **404**: Not Found - Resource not found
+- **500**: Internal Server Error - Server error
+
+### Error Response Format
+
+```json
+{
+  "status": "error",
+  "error": {
+    "code": "INVALID_PARAMETER",
+    "message": "Invalid wallet address format",
+    "details": "Wallet address must be a valid Solana address"
+  },
+  "timestamp": "2024-01-15T10:30:00Z"
+}
+```
+
+## Available Endpoints
+
+<CardGroup cols={2}>
+  <Card
+    title="Validator Status"
+    icon="server"
+    href="/api-reference/validator-status"
+  >
+    Get current validator status and performance metrics.
+  </Card>
+  <Card
+    title="Staking Information"
+    icon="coins"
+    href="/api-reference/staking-info"
+  >
+    Retrieve staking data for specific wallet addresses.
+  </Card>
+  <Card
+    title="Rewards History"
+    icon="chart-line"
+    href="/api-reference/rewards-history"
+  >
+    Access historical reward data and analytics.
+  </Card>
+  <Card
+    title="Performance Metrics"
+    icon="gauge"
+    href="/api-reference/monitoring/metrics"
+  >
+    Get detailed performance metrics and trends.
+  </Card>
+</CardGroup>
+
+## SDKs and Libraries
+
+### Official SDKs
+
+<AccordionGroup>
+  <Accordion icon="code" title="JavaScript/TypeScript">
+    ```bash npm install @validator-com/api-client ``` ```javascript import{" "}
+    {ValidatorAPI} from '@validator-com/api-client'; const api = new
+    ValidatorAPI(); const status = await api.getValidatorStatus(); ```
+  </Accordion>
+  <Accordion icon="code" title="Python">
+    ```bash pip install validator-com-api ``` ```python from validator_com
+    import ValidatorAPI api = ValidatorAPI() status = api.get_validator_status()
+    ```
+  </Accordion>
+  <Accordion icon="code" title="Go">
+    ```bash go get github.com/validator-com/api-client ``` ```go import
+    "github.com/validator-com/api-client" client := validator.NewClient()
+    status, err := client.GetValidatorStatus() ```
+  </Accordion>
+</AccordionGroup>
+
+## Webhooks
+
+### Real-time Updates
+
+Subscribe to real-time updates for validator events:
+
+<AccordionGroup>
+  <Accordion icon="bell" title="Validator Status Changes">
+    Receive notifications when validator status changes (online/offline).
+  </Accordion>
+  <Accordion icon="chart-line" title="Performance Alerts">
+    Get alerts for performance degradation or unusual activity.
+  </Accordion>
+  <Accordion icon="coins" title="Reward Distributions">
+    Receive notifications when rewards are distributed.
+  </Accordion>
+</AccordionGroup>
+
+### Webhook Setup
+
+```bash
+# Register webhook endpoint
+curl -X POST https://api.validator.com/v1/webhooks \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "url": "https://your-app.com/webhook",
+    "events": ["validator.status", "rewards.distribution"],
+    "secret": "your-webhook-secret"
+  }'
+```
+
+## Examples
+
+### Common Use Cases
+
+<AccordionGroup>
+  <Accordion icon="chart-bar" title="Dashboard Integration">
+    ```javascript
+    // Get validator metrics for dashboard
+    const metrics = await api.getMetrics({
+      timeframe: '7d',
+      granularity: 'hourly'
+    });
+    
+    // Update dashboard charts
+    updateChart('uptime', metrics.uptime);
+    updateChart('rewards', metrics.rewards);
+    ```
+  </Accordion>
+  <Accordion icon="bell" title="Monitoring Alerts">
+    ```python
+    # Check validator status for alerts
+    status = api.get_validator_status()
+    
+    if status['uptime'] < 99.0:
+        send_alert("Validator uptime below 99%")
+    
+    if status['commission'] != 5.0:
+        send_alert("Commission rate changed")
+    ```
+  </Accordion>
+  <Accordion icon="coins" title="Reward Tracking">
+    ```go
+    // Track staking rewards
+    rewards, err := client.GetRewardsHistory(walletAddress, "30d")
+    if err != nil {
+        log.Fatal(err)
+    }
+    
+    totalRewards := 0.0
+    for _, reward := range rewards {
+        totalRewards += reward.Amount
+    }
+    
+    fmt.Printf("Total rewards: %.6f SOL\n", totalRewards)
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Support
+
+Need help with the API?
+
+<CardGroup cols={2}>
+  <Card
+    title="API Documentation"
+    icon="book"
+    href="/api-reference/validator-status"
+  >
+    Complete endpoint documentation and examples.
+  </Card>
+  <Card
+    title="Developer Support"
+    icon="code"
+    href="mailto:api-support@validator.com"
+  >
+    Contact our developer support team for API assistance.
+  </Card>
+</CardGroup>

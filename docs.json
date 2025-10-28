@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Validator.com",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#9945FF",
+    "light": "#B794F6",
+    "dark": "#7C3AED"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -15,35 +15,35 @@
         "groups": [
           {
             "group": "Getting started",
+            "pages": ["index", "quickstart", "validator-overview"]
+          },
+          {
+            "group": "Validator Setup",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "setup/requirements",
+              "setup/installation",
+              "setup/configuration"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Staking & Delegation",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "staking/introduction",
+              "staking/delegate-tokens",
+              "staking/rewards"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Monitoring & Performance",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "monitoring/dashboard",
+              "monitoring/metrics",
+              "monitoring/alerts"
             ]
           },
           {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
+            "group": "Troubleshooting",
+            "pages": ["troubleshooting/common-issues", "troubleshooting/faq"]
           }
         ]
       },
@@ -51,18 +51,20 @@
         "tab": "API reference",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Validator API",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/introduction",
+              "api-reference/validator-status",
+              "api-reference/staking-info",
+              "api-reference/rewards-history"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Monitoring API",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/monitoring/metrics",
+              "api-reference/monitoring/alerts",
+              "api-reference/monitoring/performance"
             ]
           }
         ]
@@ -91,32 +93,36 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@validator.com"
+      },
+      {
+        "label": "Discord",
+        "href": "https://discord.gg/validator"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Stake Now",
+      "href": "https://validator.com/stake"
     }
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/validatorcom",
+      "github": "https://github.com/validator-com",
+      "discord": "https://discord.gg/validator"
     }
   }
 }
