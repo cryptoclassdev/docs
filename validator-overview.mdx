@@ -5,27 +5,39 @@ description: "Comprehensive overview of Validator.com architecture and performan
 
 ## Validator Architecture
 
-Validator.com operates a robust, enterprise-grade Solana validator infrastructure designed for maximum reliability and performance.
+validator.com operates a robust, enterprise-grade Solana validator infrastructure designed for maximum reliability and performance.
 
 ### Infrastructure Components
 
 <Columns cols={2}>
   <Card title="Hardware Specifications" icon="microchip">
     **CPU**: Intel Xeon Gold processors
+
     <br />
+
     **RAM**: 128GB DDR4 ECC
+
     <br />
+
     **Storage**: NVMe SSD with RAID 10
+
     <br />
+
     **Network**: 10Gbps redundant connections
   </Card>
   <Card title="Geographic Distribution" icon="globe">
     **Primary**: US East Coast
+
     <br />
+
     **Secondary**: US West Coast
+
     <br />
+
     **Backup**: European data center
+
     <br />
+
     **CDN**: Global edge locations
   </Card>
 </Columns>
@@ -35,21 +47,17 @@ Validator.com operates a robust, enterprise-grade Solana validator infrastructur
 Our validator implements multiple layers of security to protect your staked assets:
 
 <AccordionGroup>
-  <Accordion icon="shield-check" title="Hardware Security Modules (HSM)">
-    Private keys are stored in FIPS 140-2 Level 3 certified hardware security
-    modules, ensuring maximum protection against unauthorized access.
+  <Accordion title="Hardware Security Modules (HSM)" icon="shield-check">
+    Private keys are stored in FIPS 140-2 Level 3 certified hardware security modules, ensuring maximum protection against unauthorized access.
   </Accordion>
-  <Accordion icon="lock" title="Encrypted Communications">
-    All network communications use TLS 1.3 encryption with perfect forward
-    secrecy to prevent eavesdropping and man-in-the-middle attacks.
+  <Accordion title="Encrypted Communications" icon="lock">
+    All network communications use TLS 1.3 encryption with perfect forward secrecy to prevent eavesdropping and man-in-the-middle attacks.
   </Accordion>
-  <Accordion icon="eye-slash" title="Air-Gapped Operations">
-    Critical operations are performed on air-gapped systems to prevent remote
-    attacks and unauthorized access.
+  <Accordion title="Air-Gapped Operations" icon="eye-slash">
+    Critical operations are performed on air-gapped systems to prevent remote attacks and unauthorized access.
   </Accordion>
-  <Accordion icon="user-shield" title="Multi-Factor Authentication">
-    All administrative access requires multi-factor authentication with hardware
-    security keys.
+  <Accordion title="Multi-Factor Authentication" icon="user-shield">
+    All administrative access requires multi-factor authentication with hardware security keys.
   </Accordion>
 </AccordionGroup>
 
@@ -60,22 +68,30 @@ Our validator implements multiple layers of security to protect your staked asse
 <CardGroup cols={2}>
   <Card title="Current Uptime" icon="clock">
     **99.97%**
+
     <br />
+
     <small>Last 30 days</small>
   </Card>
   <Card title="Block Production" icon="cube">
     **99.8%**
+
     <br />
+
     <small>Vote participation</small>
   </Card>
   <Card title="Commission Rate" icon="percent">
     **5%**
+
     <br />
+
     <small>Competitive fees</small>
   </Card>
   <Card title="Active Stake" icon="coins">
     **2.5M SOL**
+
     <br />
+
     <small>Total delegated</small>
   </Card>
 </CardGroup>
@@ -84,8 +100,8 @@ Our validator implements multiple layers of security to protect your staked asse
 
 Our validator consistently maintains excellent performance across all key metrics:
 
-- **Vote Latency**: < 100ms average
-- **Skip Rate**: < 0.1%
+- **Vote Latency**: \< 100ms average
+- **Skip Rate**: \< 0.1%
 - **Delinquency**: 0 incidents in last 6 months
 - **Network Participation**: 100% epoch participation
 
@@ -93,11 +109,17 @@ Our validator consistently maintains excellent performance across all key metric
 
 <Info>
   **Validator Identity**: `ValidatorCom1234567890abcdef`
+
   <br />
+
   **Vote Account**: `VoteAccount1234567890abcdef`
+
   <br />
+
   **Commission**: 5%
+
   <br />
+
   **Minimum Stake**: 0.1 SOL
 </Info>
 
@@ -115,25 +137,37 @@ Based on current network conditions and our performance metrics:
 ### Historical Performance
 
 <AccordionGroup>
-  <Accordion icon="chart-line" title="30-Day Performance">
+  <Accordion title="30-Day Performance" icon="chart-line">
     Average APY: 7.2%
+
     <br />
+
     Total rewards distributed: 1,250 SOL
+
     <br />
+
     Uptime: 99.97%
   </Accordion>
-  <Accordion icon="chart-line" title="90-Day Performance">
+  <Accordion title="90-Day Performance" icon="chart-line">
     Average APY: 7.5%
+
     <br />
+
     Total rewards distributed: 3,750 SOL
+
     <br />
+
     Uptime: 99.95%
   </Accordion>
-  <Accordion icon="chart-line" title="1-Year Performance">
+  <Accordion title="1-Year Performance" icon="chart-line">
     Average APY: 7.8%
+
     <br />
+
     Total rewards distributed: 15,000 SOL
+
     <br />
+
     Uptime: 99.92%
   </Accordion>
 </AccordionGroup>
@@ -152,10 +186,7 @@ Our validator is monitored 24/7 with comprehensive alerting:
 ### Alert System
 
 <Warning>
-  We maintain multiple alert channels to ensure rapid response to any issues: -
-  **PagerDuty**: Critical alerts for immediate response - **Slack**: Team
-  notifications for operational updates - **Email**: Detailed reports and status
-  updates - **Discord**: Community notifications for major events
+  We maintain multiple alert channels to ensure rapid response to any issues: - **PagerDuty**: Critical alerts for immediate response - **Slack**: Team notifications for operational updates - **Email**: Detailed reports and status updates - **Discord**: Community notifications for major events
 </Warning>
 
 ## Compliance & Audits
@@ -183,18 +214,10 @@ We maintain complete transparency in our operations:
 Ready to stake with Validator.com?
 
 <CardGroup cols={2}>
-  <Card
-    title="Delegate Tokens"
-    icon="hand-holding-dollar"
-    href="/staking/delegate-tokens"
-  >
+  <Card title="Delegate Tokens" icon="hand-holding-dollar" href="/staking/delegate-tokens">
     Learn how to delegate your SOL tokens to our validator.
   </Card>
-  <Card
-    title="Monitor Performance"
-    icon="chart-bar"
-    href="/monitoring/dashboard"
-  >
+  <Card title="Monitor Performance" icon="chart-bar" href="/monitoring/dashboard">
     Track your staking rewards and validator performance.
   </Card>
 </CardGroup>

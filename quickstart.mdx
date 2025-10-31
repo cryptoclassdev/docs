@@ -12,21 +12,14 @@ Begin earning rewards by delegating your SOL tokens to Validator.com.
 Select a compatible Solana wallet to manage your tokens and staking operations.
 
 <AccordionGroup>
-  <Accordion icon="wallet" title="Phantom Wallet">
-    The most popular Solana wallet with built-in staking features. 1. Download
-    Phantom from [phantom.app](https://phantom.app) 2. Create a new wallet or
-    import existing 3. Fund your wallet with SOL tokens 4. Navigate to the
-    staking section
+  <Accordion title="Phantom Wallet" icon="wallet">
+    The most popular Solana wallet with built-in staking features. 1. Download Phantom from [phantom.app](https://phantom.app) 2. Create a new wallet or import existing 3. Fund your wallet with SOL tokens 4. Navigate to the staking section
   </Accordion>
-  <Accordion icon="wallet" title="Solflare Wallet">
-    Feature-rich wallet with advanced staking options. 1. Visit
-    [solflare.com](https://solflare.com) 2. Install browser extension or mobile
-    app 3. Set up your wallet and add SOL 4. Access staking dashboard
+  <Accordion title="Solflare Wallet" icon="wallet">
+    Feature-rich wallet with advanced staking options. 1. Visit [solflare.com](https://solflare.com) 2. Install browser extension or mobile app 3. Set up your wallet and add SOL 4. Access staking dashboard
   </Accordion>
-  <Accordion icon="wallet" title="Command Line (CLI)">
-    For advanced users who prefer command-line tools. 1. Install Solana CLI
-    tools 2. Configure your wallet 3. Use `solana stake` commands 4. Monitor via
-    command line
+  <Accordion title="Command Line (CLI)" icon="wallet">
+    For advanced users who prefer command-line tools. 1. Install Solana CLI tools 2. Configure your wallet 3. Use `solana stake` commands 4. Monitor via command line
   </Accordion>
 </AccordionGroup>
 
@@ -35,7 +28,7 @@ Select a compatible Solana wallet to manage your tokens and staking operations.
 Delegate your SOL tokens to our validator using your chosen method.
 
 <AccordionGroup>
-  <Accordion icon="hand-holding-dollar" title="Using Phantom Wallet">
+  <Accordion title="Using Phantom Wallet" icon="hand-holding-dollar">
     1. Open Phantom wallet
     2. Click "Stake" in the main menu
     3. Click "Stake with Validator"
@@ -43,7 +36,7 @@ Delegate your SOL tokens to our validator using your chosen method.
     5. Enter amount to stake (minimum 0.1 SOL)
     6. Confirm the transaction
   </Accordion>
-  <Accordion icon="hand-holding-dollar" title="Using Solflare Wallet">
+  <Accordion title="Using Solflare Wallet" icon="hand-holding-dollar">
     1. Open Solflare wallet
     2. Navigate to "Staking" section
     3. Click "Delegate Stake"
@@ -51,7 +44,7 @@ Delegate your SOL tokens to our validator using your chosen method.
     5. Specify stake amount
     6. Review and confirm transaction
   </Accordion>
-  <Accordion icon="terminal" title="Using Solana CLI">
+  <Accordion title="Using Solana CLI" icon="terminal">
     ```bash
     # Create a stake account
     solana create-stake-account --from <your-wallet> <stake-account-keypair>
@@ -70,23 +63,23 @@ Delegate your SOL tokens to our validator using your chosen method.
 Track your staking rewards and validator performance.
 
 <AccordionGroup>
-  <Accordion icon="chart-bar" title="Wallet Dashboard">
+  <Accordion title="Wallet Dashboard" icon="chart-bar">
     Most wallets provide built-in staking dashboards:
-    
+
     - View current stake amount
     - Track pending rewards
     - Monitor validator performance
     - Access historical data
   </Accordion>
-  <Accordion icon="globe" title="Validator.com Dashboard">
+  <Accordion title="Validator.com Dashboard" icon="globe">
     Use our dedicated monitoring dashboard:
-    
+
     1. Visit [dashboard.validator.com](https://dashboard.validator.com)
     2. Enter your wallet address
     3. View detailed staking information
     4. Track performance metrics
   </Accordion>
-  <Accordion icon="terminal" title="Command Line Monitoring">
+  <Accordion title="Command Line Monitoring" icon="terminal">
     ```bash
     # Check stake account balance
     solana balance <stake-account-keypair>
@@ -106,13 +99,21 @@ Track your staking rewards and validator performance.
 
 <Info>
   **Minimum Stake**: 0.1 SOL
+
   <br />
+
   **Commission**: 5% of rewards
+
   <br />
+
   **Reward Frequency**: Every epoch (~2 days)
+
   <br />
+
   **Unstaking Period**: ~2-3 days
+
   <br />
+
   **Validator Identity**: `ValidatorCom1234567890abcdef`
 </Info>
 
@@ -128,10 +129,7 @@ Staking rewards are calculated based on:
 ### Security Best Practices
 
 <Warning>
-  **Important Security Tips:** - Never share your private keys or seed phrases -
-  Always verify validator identity before staking - Use official wallet
-  applications only - Enable two-factor authentication where available - Keep
-  your wallet software updated
+  **Important Security Tips:** - Never share your private keys or seed phrases - Always verify validator identity before staking - Use official wallet applications only - Enable two-factor authentication where available - Keep your wallet software updated
 </Warning>
 
 ## Next Steps
@@ -139,21 +137,13 @@ Staking rewards are calculated based on:
 Now that you're staking with Validator.com, explore these additional features:
 
 <CardGroup cols={2}>
-  <Card
-    title="Monitor Performance"
-    icon="chart-line"
-    href="/monitoring/dashboard"
-  >
+  <Card title="Monitor Performance" icon="chart-line" href="/monitoring/dashboard">
     Track validator performance and your staking rewards in real-time.
   </Card>
   <Card title="Understanding Rewards" icon="coins" href="/staking/rewards">
     Learn how staking rewards are calculated and distributed.
   </Card>
-  <Card
-    title="Troubleshooting"
-    icon="wrench"
-    href="/troubleshooting/common-issues"
-  >
+  <Card title="Troubleshooting" icon="wrench" href="/troubleshooting/common-issues">
     Common issues and solutions for staking operations.
   </Card>
   <Card title="Join Community" icon="users" href="https://discord.gg/validator">
