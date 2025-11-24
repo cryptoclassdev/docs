@@ -44,7 +44,8 @@
           {
             "group": "Solana",
             "pages": [
-              "solana/introduction"
+              "solana/introduction",
+              "solana/defi"
             ]
           },
           {
