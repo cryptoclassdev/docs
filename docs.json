@@ -42,6 +42,12 @@
             ]
           },
           {
+            "group": "Solana",
+            "pages": [
+              "solana/introduction"
+            ]
+          },
+          {
             "group": "Troubleshooting",
             "pages": ["troubleshooting/common-issues", "troubleshooting/faq"]
           }
