@@ -45,7 +45,8 @@
             "group": "Solana",
             "pages": [
               "solana/introduction",
-              "solana/defi"
+              "solana/defi",
+              "solana/wallet"
             ]
           },
           {
